@@ -21,6 +21,12 @@ The package is part of the
 at helping economists and financial professionals work with
 sovereign-level economic data.
 
+Roadmap
+
+- [ ] Add support for API functions and their parameters
+- [ ] Add support for [Bulk Data Download Service
+  (BDDS)](https://databrowser.uis.unesco.org/resources/bulk)
+
 ## Installation
 
 You can install the development version of `uisapi` from GitHub with:
@@ -29,3 +35,5 @@ You can install the development version of `uisapi` from GitHub with:
     pak::pak("tidy-intelligence/r-uisapi")
 
 ## Usage
+
+…

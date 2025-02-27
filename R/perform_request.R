@@ -2,6 +2,9 @@
 #' @noRd
 perform_request <- function(
   resource,
+  entities = NULL,
+  indicators = NULL,
+  time = NULL,
   version = NULL,
   disaggregations = NULL,
   glossary_terms = NULL
@@ -11,7 +14,14 @@ perform_request <- function(
   )
 
   req <- request(base_url) |>
-    req_url_path_append(resource)
+    req_url_path_append(resource) |>
+    req_url_query(
+      entities = entities,
+
+      version = version,
+      disaggregations = disaggregations,
+      glossary_terms = glossary_terms
+    )
 
   tryCatch(
     {
@@ -26,9 +36,8 @@ perform_request <- function(
         c(
           "Failed to retrieve data from UNESCO Institute for Statistics API.",
           "x" = "Error message: {conditionMessage(e)}",
-          "i" = "Check your internet connection and parameters."
-        ),
-        call = call("uis_get_entities")
+          "i" = "Check your internet connection and function parameters."
+        )
       )
     }
   )
