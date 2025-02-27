@@ -6,5 +6,7 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @importFrom tidyr nest unnest
+#' @importFrom dplyr select filter rename mutate
 ## usethis namespace: end
 NULL
