@@ -6,6 +6,10 @@
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/uis_get.html</loc></url>
+<url><loc>/reference/uis_get_entities.html</loc></url>
+<url><loc>/reference/uis_get_indicators.html</loc></url>
+<url><loc>/reference/uis_get_versions.html</loc></url>
 <url><loc>/reference/uisapi-package.html</loc></url>
 </urlset>
 

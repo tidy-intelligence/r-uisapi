@@ -87,7 +87,87 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>…</p>
+<p>Load the package:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidy-intelligence/r-uisapi" class="external-link">uisapi</a></span><span class="op">)</span></span></code></pre></div>
+<p>To fetch indicators for specific entities, you can call:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get.html">uis_get</a></span><span class="op">(</span></span>
+<span>  entities <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BRA"</span>, <span class="st">"USA"</span><span class="op">)</span>,</span>
+<span>  indicators <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CR.1"</span>, <span class="st">"CR.2"</span><span class="op">)</span>,</span>
+<span>  start_year <span class="op">=</span> <span class="fl">2010</span>,</span>
+<span>  end_year <span class="op">=</span> <span class="fl">2020</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 6</span></span>
+<span><span class="co">#&gt; # A tibble: 36 × 4</span></span>
+<span><span class="co">#&gt;    entity_id indicator_id  year value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 BRA       CR.1          2011  89.9</span></span>
+<span><span class="co">#&gt;  2 BRA       CR.1          2012  91.6</span></span>
+<span><span class="co">#&gt;  3 BRA       CR.1          2013  91.5</span></span>
+<span><span class="co">#&gt;  4 BRA       CR.1          2014  92.9</span></span>
+<span><span class="co">#&gt;  5 BRA       CR.1          2015  93.2</span></span>
+<span><span class="co">#&gt;  6 BRA       CR.1          2016  93.8</span></span>
+<span><span class="co">#&gt;  7 BRA       CR.1          2017  94.6</span></span>
+<span><span class="co">#&gt;  8 BRA       CR.1          2018  95.1</span></span>
+<span><span class="co">#&gt;  9 BRA       CR.1          2019  95.7</span></span>
+<span><span class="co">#&gt; 10 BRA       CR.1          2020  96.3</span></span>
+<span><span class="co">#&gt; # ℹ 26 more rows</span></span></code></pre></div>
+<p>You can get information about the available entities via:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_entities.html">uis_get_entities</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 467 × 4</span></span>
+<span><span class="co">#&gt;    entity_id entity_name          entity_type region_group</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;                &lt;chr&gt;       &lt;chr&gt;       </span></span>
+<span><span class="co">#&gt;  1 ABW       Aruba                NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  2 AFG       Afghanistan          NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  3 AGO       Angola               NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  4 AIA       Anguilla             NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  5 ALA       Åland Islands        NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  6 ALB       Albania              NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  7 AND       Andorra              NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  8 ANT       Netherlands Antilles NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  9 ARE       United Arab Emirates NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt; 10 ARG       Argentina            NATIONAL    &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt; # ℹ 457 more rows</span></span></code></pre></div>
+<p>The list of available indicators can be retrieved via:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_indicators.html">uis_get_indicators</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4,247 × 7</span></span>
+<span><span class="co">#&gt;    indicator_id indicator_name     theme last_data_update last_data_update_des…¹</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;                 </span></span>
+<span><span class="co">#&gt;  1 10           Official entrance… EDUC… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt;  2 10403        Start month of th… EDUC… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt;  3 10404        End month of the … EDUC… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt;  4 10405        Start of the acad… EDUC… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt;  5 10406        End of the academ… EDUC… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt;  6 13           Theoretical durat… EDUC… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt;  7 200101       Total population … DEMO… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt;  8 200144       Population aged 1… DEMO… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt;  9 200151       Population aged 6… DEMO… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt; 10 200343       Population aged 1… DEMO… 2025-02-23       February 2025 Data Re…</span></span>
+<span><span class="co">#&gt; # ℹ 4,237 more rows</span></span>
+<span><span class="co">#&gt; # ℹ abbreviated name: ¹​last_data_update_description</span></span>
+<span><span class="co">#&gt; # ℹ 2 more variables: data_availability &lt;list&gt;, entity_types &lt;list&gt;</span></span></code></pre></div>
+<p>The API supports versioning and you can retrieve all versions using:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_versions.html">uis_get_versions</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
+<span><span class="co">#&gt;   version           publication_date         description                theme   </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;                    &lt;chr&gt;                      &lt;list&gt;  </span></span>
+<span><span class="co">#&gt; 1 20250225-2ae60fad 2025-02-27T15:29:19.309Z February 2025 DR           &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 2 20241121-61101499 2024-11-21T23:37:39.608Z SCCI Data refresh – Nov 2… &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 3 20241113-98786d81 2024-11-21T18:57:35.136Z SCCI data refresh          &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 4 20241030-9d4d089e 2024-10-30T17:28:00.868Z Drop data for CIV on MYS … &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 5 20240913-b8ca1963 2024-09-15T14:44:07.750Z Glossary Update            &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 6 20240910-b5ad4d82 2024-09-11T06:15:13.018Z September 2024 Data Relea… &lt;tibble&gt;</span></span></code></pre></div>
+<p>If you are only interested in the current default version, you can use the parameter <code>default</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_versions.html">uis_get_versions</a></span><span class="op">(</span>default <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 4</span></span>
+<span><span class="co">#&gt;   version           publication_date         description      theme           </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;                    &lt;chr&gt;            &lt;list&gt;          </span></span>
+<span><span class="co">#&gt; 1 20250225-2ae60fad 2025-02-27T15:29:19.309Z February 2025 DR &lt;tibble [4 × 3]&gt;</span></span></code></pre></div>
 </div>
 </div>
   </div>
