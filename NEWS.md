@@ -1,3 +1,3 @@
-# uisapi 0.1.0
+# uisapi (development version)
 
-* Initial CRAN submission.
+* Initial version.
