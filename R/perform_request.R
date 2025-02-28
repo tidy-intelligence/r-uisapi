@@ -4,7 +4,8 @@ perform_request <- function(
   resource,
   entities = NULL,
   indicators = NULL,
-  time = NULL,
+  start_year = NULL,
+  end_year = NULL,
   version = NULL,
   disaggregations = NULL,
   glossary_terms = NULL
@@ -16,11 +17,14 @@ perform_request <- function(
   req <- request(base_url) |>
     req_url_path_append(resource) |>
     req_url_query(
-      entities = entities,
-
+      geoUnit = entities,
+      indicator = indicators,
+      start = start_year,
+      end = end_year,
       version = version,
       disaggregations = disaggregations,
-      glossary_terms = glossary_terms
+      glossary_terms = glossary_terms,
+      .multi = "explode"
     )
 
   tryCatch(
@@ -41,4 +45,6 @@ perform_request <- function(
       )
     }
   )
+
+  resp
 }
