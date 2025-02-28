@@ -10,7 +10,6 @@ Check](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/R-CMD-che
 ![Lint](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/lint.yaml/badge.svg)
 [![Codecov test
 coverage](https://codecov.io/gh/tidy-intelligence/r-uisapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-uisapi)
-[![R-CMD-check](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Retrieve data from the [UNESCO Institute for Statistics (UIS)
