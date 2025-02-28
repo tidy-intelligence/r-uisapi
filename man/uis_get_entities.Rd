@@ -24,14 +24,14 @@ available in the UNESCO Institute for Statistics (UIS) API.
 }
 \examples{
 \donttest{
+# Download entities for default version
 uis_get_entities()
 
 # Download entities for a specific version
-uis_get_entities("20250225-2ae60fad")
+uis_get_entities("20240910-b5ad4d82")
 }
 
 }
 \seealso{
-\link{uis_get_versions} for retrieving available API versions and
-\link{uis_get_versions_default} for getting the default API version
+\link{uis_get_versions} for retrieving available API versions.
 }

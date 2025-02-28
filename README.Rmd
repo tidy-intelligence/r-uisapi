@@ -31,7 +31,6 @@ Roadmap
 - [ ] Add support for API functions and their parameters
 - [ ] Add support for [Bulk Data Download Service (BDDS)](https://databrowser.uis.unesco.org/resources/bulk)
 
-
 ## Installation
 
 You can install the development version of `uisapi` from GitHub with:
@@ -43,4 +42,43 @@ pak::pak("tidy-intelligence/r-uisapi")
 
 ## Usage
 
-...
+Load the package:
+
+```{r}
+library(uisapi)
+```
+
+To fetch indicators for specific entities, you can call:
+
+```{r}
+uis_get(
+  entities = c("BRA", "USA"),
+  indicators = c("CR.1", "CR.2"),
+  start_year = 2010,
+  end_year = 2020
+)
+```
+
+You can get information about the available entities via:
+
+```{r}
+uis_get_entities()
+```
+
+The list of available indicators can be retrieved via:
+
+```{r}
+uis_get_indicators()
+```
+
+The API supports versioning and you can retrieve all versions using:
+
+```{r}
+uis_get_versions()
+```
+
+If you are only interested in the current default version, you can use the parameter `default`:
+
+```{r}
+uis_get_versions(default = TRUE)
+```

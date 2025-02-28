@@ -2,12 +2,13 @@
 % Please edit documentation in R/uis_get_versions.R
 \name{uis_get_versions}
 \alias{uis_get_versions}
-\alias{uis_get_versions_default}
 \title{Get available UIS API versions}
 \usage{
-uis_get_versions()
-
-uis_get_versions_default()
+uis_get_versions(default = FALSE)
+}
+\arguments{
+\item{default}{Logical. Indicates whether only the current default version
+should be retrievend. Defaults to FALSE.}
 }
 \value{
 A data frame with the following columns:
@@ -16,14 +17,8 @@ A data frame with the following columns:
 \item{description}{Character. The description of the version.}
 \item{release_date}{Character. The date when the version was released.}
 \item{theme}{List column. Each element is a nested data frame containing
-information about themes available in the version, with columns:
-\itemize{
-\item{theme_id}{Character. The theme identifier.}
-\item{theme_last_update}{Character. The date when the theme was last
-updated.}
-\item{theme_description}{Character. The description of the theme.}
-}
-}
+information about themes available in the version, with columns: theme_id,
+theme_last_update, theme_description}
 }
 \description{
 Retrieves information about the available versions of the UNESCO Institute

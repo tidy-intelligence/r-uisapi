@@ -15,17 +15,42 @@ perform_request <- function(
   )
 
   req <- request(base_url) |>
-    req_url_path_append(resource) |>
-    req_url_query(
-      geoUnit = entities,
-      indicator = indicators,
-      start = start_year,
-      end = end_year,
-      version = version,
-      disaggregations = disaggregations,
-      glossary_terms = glossary_terms,
-      .multi = "explode"
-    )
+    req_url_path_append(resource)
+
+  if (!is.null(entities)) {
+    req <- req |>
+      req_url_query(geoUnit = entities, .multi = "explode")
+  }
+
+  if (!is.null(indicators)) {
+    req <- req |>
+      req_url_query(indicator = indicators, .multi = "explode")
+  }
+
+  if (!is.null(start_year)) {
+    req <- req |>
+      req_url_query(start = start_year)
+  }
+
+  if (!is.null(end_year)) {
+    req <- req |>
+      req_url_query(end = end_year)
+  }
+
+  if (!is.null(version)) {
+    req <- req |>
+      req_url_query(version = version)
+  }
+
+  if (!is.null(disaggregations)) {
+    req <- req |>
+      req_url_query(disaggregations = disaggregations)
+  }
+
+  if (!is.null(glossary_terms)) {
+    req <- req |>
+      req_url_query(glossary_terms = glossary_terms)
+  }
 
   tryCatch(
     {

@@ -24,17 +24,26 @@
 #'
 #' @examplesIf curl::has_internet()
 #' \donttest{
-#' # Get a single indicator for all countries
-#' literacy_data <- uis_get(
-#'   indicators = "200101",
-#'   start_year = 2015,
-#'   end_year = 2020
+#' # Get all data for a single indicator
+#' uis_get(
+#'   indicators = "CR.1"
 #' )
 #'
-#' # Get multiple indicators for a single country
+#' # Get all data for a single country
 #' uis_get(
-#'   entities = "BRA",
-#'   indicators = c("GER.1", "NER.1", "CR.1"),
+#'   entities = "BRA"
+#' )
+#'
+#' # Get data for multiple indicators and countries
+#' uis_get(
+#'   entities = c("BRA", "USA"),
+#'   indicators = c("CR.1", "CR.2")
+#' )
+#'
+#' # Get data for multiple indicators and countries and specific time range
+#' uis_get(
+#'   entities = c("BRA", "USA"),
+#'   indicators = c("CR.1", "CR.2"),
 #'   start_year = 2010,
 #'   end_year = 2020
 #' )
@@ -96,36 +105,5 @@ uis_get <- function(
         "value"
       )
     return(data)
-  }
-}
-
-#' @noRd
-#' @keywords internal
-validate_character_vector <- function(arg, arg_name) {
-  if (!is.null(arg)) {
-    if (!is.character(arg) || any(is.na(arg))) {
-      cli::cli_abort(
-        c(
-          "!" = paste(
-            "{.arg {arg_name}} must be a character vector and cannot contain ",
-            "NA values."
-          )
-        )
-      )
-    }
-  }
-}
-
-#' @noRd
-#' @keywords internal
-validate_year <- function(year, arg_name) {
-  if (!is.null(year)) {
-    if (!is.numeric(year)) {
-      cli::cli_abort(
-        c(
-          "!" = paste("{.arg {arg_name}} must be an integer.")
-        )
-      )
-    }
   }
 }

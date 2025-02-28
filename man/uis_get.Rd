@@ -43,17 +43,26 @@ specified entities, indicators, and time periods.
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
-# Get a single indicator for all countries
-literacy_data <- uis_get(
-  indicators = "200101",
-  start_year = 2015,
-  end_year = 2020
+# Get all data for a single indicator
+uis_get(
+  indicators = "CR.1"
 )
 
-# Get multiple indicators for a single country
+# Get all data for a single country
 uis_get(
-  entities = "BRA",
-  indicators = c("GER.1", "NER.1", "CR.1"),
+  entities = "BRA"
+)
+
+# Get data for multiple indicators and countries
+uis_get(
+  entities = c("BRA", "USA"),
+  indicators = c("CR.1", "CR.2")
+)
+
+# Get data for multiple indicators and countries and specific time range
+uis_get(
+  entities = c("BRA", "USA"),
+  indicators = c("CR.1", "CR.2"),
   start_year = 2010,
   end_year = 2020
 )

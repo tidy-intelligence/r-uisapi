@@ -2,8 +2,8 @@
 
 export(uis_get)
 export(uis_get_entities)
+export(uis_get_indicators)
 export(uis_get_versions)
-export(uis_get_versions_default)
 import(cli)
 import(httr2)
 import(jsonlite)
