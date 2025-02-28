@@ -1,15 +1,15 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>/404.html</loc></url>
-<url><loc>/LICENSE-text.html</loc></url>
-<url><loc>/LICENSE.html</loc></url>
-<url><loc>/authors.html</loc></url>
-<url><loc>/index.html</loc></url>
-<url><loc>/news/index.html</loc></url>
-<url><loc>/reference/index.html</loc></url>
-<url><loc>/reference/uis_get.html</loc></url>
-<url><loc>/reference/uis_get_entities.html</loc></url>
-<url><loc>/reference/uis_get_indicators.html</loc></url>
-<url><loc>/reference/uis_get_versions.html</loc></url>
-<url><loc>/reference/uisapi-package.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/404.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/LICENSE-text.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/LICENSE.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/authors.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/index.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/news/index.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/reference/index.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/reference/uis_get.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/reference/uis_get_entities.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/reference/uis_get_indicators.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/reference/uis_get_versions.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-uisapi/reference/uisapi-package.html</loc></url>
 </urlset>
 
