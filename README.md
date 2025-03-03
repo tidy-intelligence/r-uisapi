@@ -20,12 +20,6 @@ The package is part of the
 at helping economists and financial professionals work with
 sovereign-level economic data.
 
-Roadmap:
-
-- [x] Add support for API functions and their parameters
-- [ ] Add support for [Bulk Data Download Service
-  (BDDS)](https://databrowser.uis.unesco.org/resources/bulk)
-
 ## Installation
 
 You can install the development version of `uisapi` from GitHub with:
@@ -158,8 +152,16 @@ uis_bulk_files()
 #> 11 "Cultural trade Archive June 2021"                      https:/… <NA>
 ```
 
-To download a specific file provide the URL:
+Each bulk files consists of multiple CSV files and the `uisapi` package
+currently does not provide automatic importers for these files. Rather,
+you can use base utils to download a specific file, unzip it, and read
+its files. For instance:
 
 ``` r
-uis_bulk("https://uis.unesco.org/sites/default/files/documents/bdds/092024/SDG.zip ")
+download.file(
+  "https://uis.unesco.org/sites/default/files/documents/bdds/092024/SDG.zip",
+  destfile = "SDG.zip"
+)
+unzip("SDG.zip")
+read.csv("SDG_COUNTRY.csv")
 ```
