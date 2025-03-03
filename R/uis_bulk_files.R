@@ -41,16 +41,18 @@ uis_bulk_files <- function() {
   resp <- resp |>
     resp_body_string()
 
+  # nolint start
   pattern <- '<script id="__NEXT_DATA__" type="application/json">(.*?)</script>'
   matches <- regmatches(resp, gregexpr(pattern, resp, perl = TRUE))[[1]]
 
   json_str <- sub(
     '^<script id="__NEXT_DATA__" type="application/json">',
-    '',
+    "",
     matches
   )
+  # nolint end
 
-  json_str <- sub('</script>$', '', json_str)
+  json_str <- sub("</script>$", "", json_str)
 
   json_data <- jsonlite::fromJSON(json_str, flatten = TRUE)
 
