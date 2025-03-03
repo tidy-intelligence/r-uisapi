@@ -89,7 +89,6 @@ uis_get <- function(
 
   records <- data_raw$records
 
-  print(length(records))
   if (length(records) == 0) {
     cli::cli_inform(
       c("i" = "No records found for this query.")

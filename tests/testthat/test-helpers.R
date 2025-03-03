@@ -167,3 +167,53 @@ test_that("validate_year uses the correct argument name in error messages", {
     regexp = "`custom_year_arg` must be an integer"
   )
 })
+
+validate_version <- function(version) {
+  if (!is.null(version)) {
+    if (!is.character(version)) {
+      cli::cli_abort(
+        c(
+          "!" = "{.arg version} must be a character."
+        )
+      )
+    }
+    version_length <- nchar(version)
+    if (version_length != 17) {
+      cli::cli_abort(
+        c(
+          "!" = "{.arg version} must have length 17.",
+          "x" = "You've supplied {version_length}."
+        )
+      )
+    }
+  }
+}
+
+test_that("validate_version() allows NULL", {
+  expect_silent(validate_version(NULL))
+})
+
+test_that("validate_version() allows valid 17-character string", {
+  expect_silent(validate_version("12345678901234567"))
+})
+
+test_that("validate_version() rejects non-character input", {
+  expect_error(
+    validate_version(12345),
+    "must be a character"
+  )
+})
+
+test_that("validate_version() rejects wrong-length string", {
+  expect_error(
+    validate_version("short"),
+    "must have length 17"
+  )
+})
+
+test_that("validate_version() reports actual length when wrong", {
+  expect_error(
+    validate_version("short"),
+    "You've supplied 5"
+  )
+})

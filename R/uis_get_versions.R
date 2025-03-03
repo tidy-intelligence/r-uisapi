@@ -9,10 +9,9 @@
 #'  should be retrievend. Defaults to FALSE.
 #'
 #' @return A data frame with the following columns:
-#'   \item{id}{Character. The version identifier.}
-#'   \item{code}{Character. The version code.}
+#'   \item{version}{Character. The version identifier.}
+#'   \item{publication_date}{Date-time. The date when the version was released.}
 #'   \item{description}{Character. The description of the version.}
-#'   \item{release_date}{Character. The date when the version was released.}
 #'   \item{theme}{List column. Each element is a nested data frame containing
 #' information about themes available in the version, with columns: theme_id,
 #' theme_last_update, theme_description}
@@ -48,30 +47,14 @@ uis_get_versions <- function(default = FALSE) {
   versions <- convert_to_snake_case(versions) |>
     tidyr::nest(
       theme = c("theme_id", "theme_last_update", "theme_description")
+    ) |>
+    dplyr::mutate(
+      publication_date = as.POSIXct(
+        .data$publication_date,
+        format = "%Y-%m-%dT%H:%M:%OS",
+        tz = "UTC"
+      )
     )
 
   versions
-}
-
-#' @keywords internal
-#' @noRd
-validate_version <- function(version) {
-  if (!is.null(version)) {
-    if (!is.character(version)) {
-      cli::cli_abort(
-        c(
-          "!" = "{.arg version} must be a character."
-        )
-      )
-    }
-    version_length <- nchar(version)
-    if (version_length != 17) {
-      cli::cli_abort(
-        c(
-          "!" = "{.arg version} must have length 17.",
-          "x" = "You've supplied {version_length}."
-        )
-      )
-    }
-  }
 }

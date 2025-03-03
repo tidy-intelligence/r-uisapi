@@ -12,10 +12,9 @@ should be retrievend. Defaults to FALSE.}
 }
 \value{
 A data frame with the following columns:
-\item{id}{Character. The version identifier.}
-\item{code}{Character. The version code.}
+\item{version}{Character. The version identifier.}
+\item{publication_date}{Datetime. The date when the version was released.}
 \item{description}{Character. The description of the version.}
-\item{release_date}{Character. The date when the version was released.}
 \item{theme}{List column. Each element is a nested data frame containing
 information about themes available in the version, with columns: theme_id,
 theme_last_update, theme_description}

@@ -8,5 +8,6 @@
 ## usethis namespace: start
 #' @importFrom tidyr nest unnest
 #' @importFrom dplyr select filter rename mutate
+#' @importFrom rlang .data
 ## usethis namespace: end
 NULL
