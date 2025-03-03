@@ -97,6 +97,7 @@ associated with the indicator.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># Download indicators</span></span></span>
 <span class="r-in"><span><span class="fu">uis_get_indicators</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,247 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    indicator_id indicator_name     theme last_data_update last_data_update_des…¹</span>
@@ -114,6 +115,26 @@ associated with the indicator.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4,237 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​last_data_update_description</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: data_availability &lt;list&gt;, entity_types &lt;list&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Download indicators with glossary terms and disaggregations</span></span></span>
+<span class="r-in"><span><span class="fu">uis_get_indicators</span><span class="op">(</span>disaggregations <span class="op">=</span> <span class="cn">TRUE</span>, glossary_terms <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,247 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    indicator_id indicator_name     theme last_data_update last_data_update_des…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10           Official entrance… EDUC… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 10403        Start month of th… EDUC… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 10404        End month of the … EDUC… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 10405        Start of the acad… EDUC… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 10406        End of the academ… EDUC… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 13           Theoretical durat… EDUC… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 200101       Total population … DEMO… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 200144       Population aged 1… DEMO… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 200151       Population aged 6… DEMO… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 200343       Population aged 1… DEMO… 2025-02-23       February 2025 Data Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4,237 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​last_data_update_description</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 more variables: data_availability &lt;list&gt;, entity_types &lt;list&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   disaggregations &lt;list&gt;, glossary_terms &lt;list&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
