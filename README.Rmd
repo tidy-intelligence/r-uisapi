@@ -81,3 +81,15 @@ If you are only interested in the current default version, you can use the param
 ```{r}
 uis_get_versions(default = TRUE)
 ```
+
+The API will only return 100,000 records for each query, if more data is requested, the API call with fail with a 400 http status code. If you need more data, then UIS recommends using the [Bulk Data Download Service (BDDS)](https://databrowser.uis.unesco.org/resources/bulk). You can get a list of available files via:
+
+```{r}
+uis_bulk_files()
+```
+
+To download a specific file provide the URL: 
+
+```{r eval = FALSE}
+uis_bulk("https://uis.unesco.org/sites/default/files/documents/bdds/092024/SDG.zip ")
+```

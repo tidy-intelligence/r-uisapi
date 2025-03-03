@@ -13,7 +13,7 @@ should be retrievend. Defaults to FALSE.}
 \value{
 A data frame with the following columns:
 \item{version}{Character. The version identifier.}
-\item{publication_date}{Datetime. The date when the version was released.}
+\item{publication_date}{Date-time. The date when the version was released.}
 \item{description}{Character. The description of the version.}
 \item{theme}{List column. Each element is a nested data frame containing
 information about themes available in the version, with columns: theme_id,

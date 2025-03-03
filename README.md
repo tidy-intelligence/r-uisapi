@@ -50,7 +50,6 @@ uis_get(
   start_year = 2010,
   end_year = 2020
 )
-#> [1] 6
 #> # A tibble: 36 × 4
 #>    entity_id indicator_id  year value
 #>    <chr>     <chr>        <int> <dbl>
@@ -114,14 +113,14 @@ The API supports versioning and you can retrieve all versions using:
 ``` r
 uis_get_versions()
 #> # A tibble: 6 × 4
-#>   version           publication_date         description                theme   
-#>   <chr>             <chr>                    <chr>                      <list>  
-#> 1 20250225-2ae60fad 2025-02-27T15:29:19.309Z February 2025 DR           <tibble>
-#> 2 20241121-61101499 2024-11-21T23:37:39.608Z SCCI Data refresh – Nov 2… <tibble>
-#> 3 20241113-98786d81 2024-11-21T18:57:35.136Z SCCI data refresh          <tibble>
-#> 4 20241030-9d4d089e 2024-10-30T17:28:00.868Z Drop data for CIV on MYS … <tibble>
-#> 5 20240913-b8ca1963 2024-09-15T14:44:07.750Z Glossary Update            <tibble>
-#> 6 20240910-b5ad4d82 2024-09-11T06:15:13.018Z September 2024 Data Relea… <tibble>
+#>   version           publication_date    description                     theme   
+#>   <chr>             <dttm>              <chr>                           <list>  
+#> 1 20250225-2ae60fad 2025-02-27 15:29:19 February 2025 DR                <tibble>
+#> 2 20241121-61101499 2024-11-21 23:37:39 SCCI Data refresh – Nov 2024 -… <tibble>
+#> 3 20241113-98786d81 2024-11-21 18:57:35 SCCI data refresh               <tibble>
+#> 4 20241030-9d4d089e 2024-10-30 17:28:00 Drop data for CIV on MYS for 1… <tibble>
+#> 5 20240913-b8ca1963 2024-09-15 14:44:07 Glossary Update                 <tibble>
+#> 6 20240910-b5ad4d82 2024-09-11 06:15:13 September 2024 Data Release (f… <tibble>
 ```
 
 If you are only interested in the current default version, you can use
@@ -130,7 +129,37 @@ the parameter `default`:
 ``` r
 uis_get_versions(default = TRUE)
 #> # A tibble: 1 × 4
-#>   version           publication_date         description      theme           
-#>   <chr>             <chr>                    <chr>            <list>          
-#> 1 20250225-2ae60fad 2025-02-27T15:29:19.309Z February 2025 DR <tibble [4 × 3]>
+#>   version           publication_date    description      theme           
+#>   <chr>             <dttm>              <chr>            <list>          
+#> 1 20250225-2ae60fad 2025-02-27 15:29:19 February 2025 DR <tibble [4 × 3]>
+```
+
+The API will only return 100,000 records for each query, if more data is
+requested, the API call with fail with a 400 http status code. If you
+need more data, then UIS recommends using the [Bulk Data Download
+Service (BDDS)](https://databrowser.uis.unesco.org/resources/bulk). You
+can get a list of available files via:
+
+``` r
+uis_bulk_files()
+#> # A tibble: 11 × 3
+#>    file_name                                               file_url last_updated
+#>    <chr>                                                   <chr>    <chr>       
+#>  1 "SDG 4 Education - Global and Thematic Indicators "     https:/… Septembre 2…
+#>  2 "Other Policy Relevant Indicators (OPRI)"               https:/… September 2…
+#>  3 " SDG 9.5 - Research and Development (R&D)"             https:/… October 2024
+#>  4 "Research and Development (R&D) – Other Policy Relevan… https:/… October 2024
+#>  5 "SDG 11.4 Protect the Worlds Cultural and Natural Heri… https:/… October 2024
+#>  6 "Demographic and Socio-economic Indicators"             https:/… September 2…
+#>  7 "Education Non Core Archive February 2020"              https:/… <NA>        
+#>  8 "Research and Development (R&D) Archive March 2021"     https:/… <NA>        
+#>  9 "Innovation Archive April 2017"                         https:/… <NA>        
+#> 10 "Cultural employment Archive June 2019"                 https:/… <NA>        
+#> 11 "Cultural trade Archive June 2021"                      https:/… <NA>
+```
+
+To download a specific file provide the URL:
+
+``` r
+uis_bulk("https://uis.unesco.org/sites/default/files/documents/bdds/092024/SDG.zip ")
 ```
