@@ -60,17 +60,14 @@ should be retrievend. Defaults to FALSE.</p></dd>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A data frame with the following columns:</p>
-<dl><dt>id</dt>
+<dl><dt>version</dt>
 <dd><p>Character. The version identifier.</p></dd>
 
-<dt>code</dt>
-<dd><p>Character. The version code.</p></dd>
+<dt>publication_date</dt>
+<dd><p>Datetime. The date when the version was released.</p></dd>
 
 <dt>description</dt>
 <dd><p>Character. The description of the version.</p></dd>
-
-<dt>release_date</dt>
-<dd><p>Character. The date when the version was released.</p></dd>
 
 <dt>theme</dt>
 <dd><p>List column. Each element is a nested data frame containing
@@ -84,14 +81,14 @@ theme_last_update, theme_description</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">uis_get_versions</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   version           publication_date         description                theme   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 20250225-2ae60fad 2025-02-27T15:29:19.309Z February 2025 DR           <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 20241121-61101499 2024-11-21T23:37:39.608Z SCCI Data refresh – Nov 2… <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 20241113-98786d81 2024-11-21T18:57:35.136Z SCCI data refresh          <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 20241030-9d4d089e 2024-10-30T17:28:00.868Z Drop data for CIV on MYS … <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 20240913-b8ca1963 2024-09-15T14:44:07.750Z Glossary Update            <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 20240910-b5ad4d82 2024-09-11T06:15:13.018Z September 2024 Data Relea… <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   version           publication_date    description                     theme   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                           <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 20250225-2ae60fad 2025-02-27 <span style="color: #949494;">15:29:19</span> February 2025 DR                <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 20241121-61101499 2024-11-21 <span style="color: #949494;">23:37:39</span> SCCI Data refresh – Nov 2024 -… <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 20241113-98786d81 2024-11-21 <span style="color: #949494;">18:57:35</span> SCCI data refresh               <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 20241030-9d4d089e 2024-10-30 <span style="color: #949494;">17:28:00</span> Drop data for CIV on MYS for 1… <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 20240913-b8ca1963 2024-09-15 <span style="color: #949494;">14:44:07</span> Glossary Update                 <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 20240910-b5ad4d82 2024-09-11 <span style="color: #949494;">06:15:13</span> September 2024 Data Release (f… <span style="color: #949494;">&lt;tibble&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
