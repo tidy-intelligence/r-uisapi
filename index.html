@@ -79,7 +79,6 @@
 <span>  start_year <span class="op">=</span> <span class="fl">2010</span>,</span>
 <span>  end_year <span class="op">=</span> <span class="fl">2020</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 6</span></span>
 <span><span class="co">#&gt; # A tibble: 36 × 4</span></span>
 <span><span class="co">#&gt;    entity_id indicator_id  year value</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt;</span></span>
@@ -134,21 +133,41 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_versions.html">uis_get_versions</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
-<span><span class="co">#&gt;   version           publication_date         description                theme   </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;                    &lt;chr&gt;                      &lt;list&gt;  </span></span>
-<span><span class="co">#&gt; 1 20250225-2ae60fad 2025-02-27T15:29:19.309Z February 2025 DR           &lt;tibble&gt;</span></span>
-<span><span class="co">#&gt; 2 20241121-61101499 2024-11-21T23:37:39.608Z SCCI Data refresh – Nov 2… &lt;tibble&gt;</span></span>
-<span><span class="co">#&gt; 3 20241113-98786d81 2024-11-21T18:57:35.136Z SCCI data refresh          &lt;tibble&gt;</span></span>
-<span><span class="co">#&gt; 4 20241030-9d4d089e 2024-10-30T17:28:00.868Z Drop data for CIV on MYS … &lt;tibble&gt;</span></span>
-<span><span class="co">#&gt; 5 20240913-b8ca1963 2024-09-15T14:44:07.750Z Glossary Update            &lt;tibble&gt;</span></span>
-<span><span class="co">#&gt; 6 20240910-b5ad4d82 2024-09-11T06:15:13.018Z September 2024 Data Relea… &lt;tibble&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt;   version           publication_date    description                     theme   </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;             &lt;dttm&gt;              &lt;chr&gt;                           &lt;list&gt;  </span></span>
+<span><span class="co">#&gt; 1 20250225-2ae60fad 2025-02-27 15:29:19 February 2025 DR                &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 2 20241121-61101499 2024-11-21 23:37:39 SCCI Data refresh – Nov 2024 -… &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 3 20241113-98786d81 2024-11-21 18:57:35 SCCI data refresh               &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 4 20241030-9d4d089e 2024-10-30 17:28:00 Drop data for CIV on MYS for 1… &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 5 20240913-b8ca1963 2024-09-15 14:44:07 Glossary Update                 &lt;tibble&gt;</span></span>
+<span><span class="co">#&gt; 6 20240910-b5ad4d82 2024-09-11 06:15:13 September 2024 Data Release (f… &lt;tibble&gt;</span></span></code></pre></div>
 <p>If you are only interested in the current default version, you can use the parameter <code>default</code>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_versions.html">uis_get_versions</a></span><span class="op">(</span>default <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 1 × 4</span></span>
-<span><span class="co">#&gt;   version           publication_date         description      theme           </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;                    &lt;chr&gt;            &lt;list&gt;          </span></span>
-<span><span class="co">#&gt; 1 20250225-2ae60fad 2025-02-27T15:29:19.309Z February 2025 DR &lt;tibble [4 × 3]&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt;   version           publication_date    description      theme           </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;             &lt;dttm&gt;              &lt;chr&gt;            &lt;list&gt;          </span></span>
+<span><span class="co">#&gt; 1 20250225-2ae60fad 2025-02-27 15:29:19 February 2025 DR &lt;tibble [4 × 3]&gt;</span></span></code></pre></div>
+<p>The API will only return 100,000 records for each query, if more data is requested, the API call with fail with a 400 http status code. If you need more data, then UIS recommends using the <a href="https://databrowser.uis.unesco.org/resources/bulk" class="external-link">Bulk Data Download Service (BDDS)</a>. You can get a list of available files via:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/uis_bulk_files.html">uis_bulk_files</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 11 × 3</span></span>
+<span><span class="co">#&gt;    file_name                                               file_url last_updated</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                                                   &lt;chr&gt;    &lt;chr&gt;       </span></span>
+<span><span class="co">#&gt;  1 "SDG 4 Education - Global and Thematic Indicators "     https:/… Septembre 2…</span></span>
+<span><span class="co">#&gt;  2 "Other Policy Relevant Indicators (OPRI)"               https:/… September 2…</span></span>
+<span><span class="co">#&gt;  3 " SDG 9.5 - Research and Development (R&amp;D)"             https:/… October 2024</span></span>
+<span><span class="co">#&gt;  4 "Research and Development (R&amp;D) – Other Policy Relevan… https:/… October 2024</span></span>
+<span><span class="co">#&gt;  5 "SDG 11.4 Protect the Worlds Cultural and Natural Heri… https:/… October 2024</span></span>
+<span><span class="co">#&gt;  6 "Demographic and Socio-economic Indicators"             https:/… September 2…</span></span>
+<span><span class="co">#&gt;  7 "Education Non Core Archive February 2020"              https:/… &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  8 "Research and Development (R&amp;D) Archive March 2021"     https:/… &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt;  9 "Innovation Archive April 2017"                         https:/… &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt; 10 "Cultural employment Archive June 2019"                 https:/… &lt;NA&gt;        </span></span>
+<span><span class="co">#&gt; 11 "Cultural trade Archive June 2021"                      https:/… &lt;NA&gt;</span></span></code></pre></div>
+<p>To download a specific file provide the URL:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">uis_bulk</span><span class="op">(</span><span class="st">"https://uis.unesco.org/sites/default/files/documents/bdds/092024/SDG.zip "</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
