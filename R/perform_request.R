@@ -43,13 +43,15 @@ perform_request <- function(
   }
 
   if (!is.null(disaggregations)) {
+    disaggregations <- ifelse(disaggregations, "true", "false")
     req <- req |>
       req_url_query(disaggregations = disaggregations)
   }
 
   if (!is.null(glossary_terms)) {
+    glossary_terms <- ifelse(glossary_terms, "true", "false")
     req <- req |>
-      req_url_query(glossary_terms = glossary_terms)
+      req_url_query(glossaryTerms = glossary_terms)
   }
 
   tryCatch(

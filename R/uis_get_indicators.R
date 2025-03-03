@@ -22,7 +22,11 @@
 #'
 #' @examples
 #' \donttest{
+#' # Download indicators
 #' uis_get_indicators()
+#'
+#' # Download indicators with glossary terms and disaggregations
+#' uis_get_indicators(disaggregations = TRUE, glossary_terms = TRUE)
 #' }
 #'
 #' @seealso
@@ -34,7 +38,6 @@ uis_get_indicators <- function(
   disaggregations = FALSE,
   glossary_terms = FALSE
 ) {
-  # TODO: add support for glossary_terms and disagreggations
   validate_version(version)
   validate_logical(disaggregations)
   validate_logical(glossary_terms)
@@ -48,6 +51,56 @@ uis_get_indicators <- function(
 
   indicators_raw <- resp_body_json(resp, simplifyVector = TRUE) |>
     as_tibble()
+
+  if (glossary_terms) {
+    glossary_terms_raw <- indicators_raw |>
+      select("indicatorCode", "glossaryTerms") |>
+      tidyr::unnest("glossaryTerms") |>
+      select(-"themes") |>
+      dplyr::distinct()
+
+    glossary_terms_processed <- glossary_terms_raw |>
+      convert_to_snake_case() |>
+      dplyr::rename(
+        "indicator_id" = "indicator_code",
+        "term_name" = "name"
+      ) |>
+      tidyr::nest(
+        glossary_terms = -"indicator_id"
+      )
+
+    indicators_raw <- indicators_raw |>
+      select(-"glossaryTerms")
+  }
+
+  if (disaggregations) {
+    disaggregations_raw <- indicators_raw |>
+      select("indicatorCode", "disaggregations") |>
+      tidyr::unnest("disaggregations") |>
+      dplyr::rename(
+        "disaggregation_id" = "code",
+        "disaggregation_name" = "name"
+      ) |>
+      select(-"glossaryTerms") |>
+      tidyr::unnest("disaggregationType") |>
+      dplyr::rename(
+        "disaggregation_type_id" = "code",
+        "disaggregation_type_name" = "name"
+      ) |>
+      select(-"glossaryTerms")
+
+    disaggregations_processed <- disaggregations_raw |>
+      convert_to_snake_case() |>
+      dplyr::rename(
+        "indicator_id" = "indicator_code"
+      ) |>
+      tidyr::nest(
+        disaggregations = -"indicator_id"
+      )
+
+    indicators_raw <- indicators_raw |>
+      select(-"disaggregations")
+  }
 
   indicators <- indicators_raw |>
     tidyr::unnest("dataAvailability") |>
@@ -76,5 +129,15 @@ uis_get_indicators <- function(
       "entity_types" = "entity_types"
     )
 
+  if (disaggregations || glossary_terms) {
+    if (disaggregations) {
+      indicators <- indicators |>
+        dplyr::left_join(disaggregations_processed, by = "indicator_id")
+    }
+    if (glossary_terms) {
+      indicators <- indicators |>
+        dplyr::left_join(glossary_terms_processed, by = "indicator_id")
+    }
+  }
   indicators
 }

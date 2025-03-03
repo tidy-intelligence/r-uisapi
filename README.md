@@ -20,9 +20,9 @@ The package is part of the
 at helping economists and financial professionals work with
 sovereign-level economic data.
 
-Roadmap
+Roadmap:
 
-- [ ] Add support for API functions and their parameters
+- [x] Add support for API functions and their parameters
 - [ ] Add support for [Bulk Data Download Service
   (BDDS)](https://databrowser.uis.unesco.org/resources/bulk)
 

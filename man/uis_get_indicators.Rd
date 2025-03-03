@@ -36,7 +36,11 @@ associated metadata.
 }
 \examples{
 \donttest{
+# Download indicators
 uis_get_indicators()
+
+# Download indicators with glossary terms and disaggregations
+uis_get_indicators(disaggregations = TRUE, glossary_terms = TRUE)
 }
 
 }
