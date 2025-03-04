@@ -6,7 +6,7 @@
 \alias{uisapi-package}
 \title{uisapi: Access the UNESCO Institute for Statistics API}
 \description{
-Retrieve data from the UNESCO Institute for Statistics (UIS) API \url{https://api.uis.unesco.org/api/public/documentation/}.
+Retrieve data from the UNESCO Institute for Statistics (UIS) API \url{https://api.uis.unesco.org/api/public/documentation/}. UIS provides public access to more than 4,000 indicators focusing on education, science and technology, culture, and communication.
 }
 \seealso{
 Useful links:

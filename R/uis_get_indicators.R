@@ -2,11 +2,11 @@
 #'
 #' @description
 #' Retrieves information about indicators available in the UNESCO Institute for
-#' Statistics (UIS) API, including their definitions, data availability, and
-#' associated metadata.
+#' Statistics (UIS) API.
 #'
 #' @param version Character. The API version to use. If NULL (default), the
-#'  API's default version will be used.
+#'  API's default version will be used. See \link{uis_get_versions} for a list
+#'  of supported versions.
 #' @param disaggregations Logical. If TRUE, includes disaggregation information
 #'  for indicators. Default is FALSE.
 #' @param glossary_terms Logical. If TRUE, includes glossary terms associated
@@ -15,6 +15,10 @@
 #' @return A data frame with information about indicators:
 #'   \item{indicator_id}{Character. The unique identifier for the indicator.}
 #'   \item{indicator_name}{Character. The name of the indicator.}
+#'   \item{theme}{Character. The theme of the indicator.}
+#'   \item{last_data_update}{Date. The last update date.}
+#'   \item{last_data_update_description}{Character. A description about the
+#'  last update date.}
 #'   \item{data_availability}{List column. Contains nested information about
 #'  data availability, including total record count and timeline min/max years.}
 #'   \item{entity_types}{List column. Contains information about entity types
@@ -28,9 +32,6 @@
 #' # Download indicators with glossary terms and disaggregations
 #' uis_get_indicators(disaggregations = TRUE, glossary_terms = TRUE)
 #' }
-#'
-#' @seealso
-#' \code{uis_get_versions} for retrieving available API versions.
 #'
 #' @export
 uis_get_indicators <- function(
@@ -127,6 +128,9 @@ uis_get_indicators <- function(
     ) |>
     tidyr::nest(
       "entity_types" = "entity_types"
+    ) |>
+    dplyr::mutate(
+      last_data_update = as.Date(.data$last_data_update)
     )
 
   if (disaggregations || glossary_terms) {

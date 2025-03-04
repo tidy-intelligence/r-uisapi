@@ -8,14 +8,15 @@ uis_get_entities(version = NULL)
 }
 \arguments{
 \item{version}{Character. The API version to use. If NULL (default), the
-API's default version will be used.}
+API's default version will be used. See \link{uis_get_versions} for a list
+of supported versions.}
 }
 \value{
 A data frame with information about geographical entities:
 \item{entity_id}{Character. The unique identifier for the entity.}
 \item{entity_name}{Character. The name of the geographical entity.}
-\item{entity_typ}{Character. The type of entity (e.g., country, region).}
-\item{region_group}{Character or list. Information about the region
+\item{entity_type}{Character. The type of entity (e.g., country, region).}
+\item{region_group}{Character. Information about the region
 grouping.}
 }
 \description{
@@ -31,7 +32,4 @@ uis_get_entities()
 uis_get_entities("20240910-b5ad4d82")
 }
 
-}
-\seealso{
-\link{uis_get_versions} for retrieving available API versions.
 }

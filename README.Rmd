@@ -21,15 +21,23 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/tidy-intelligence/r-uisapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-uisapi)
 <!-- badges: end -->
 
-Retrieve data from the [UNESCO Institute for Statistics (UIS) API](https://api.uis.unesco.org/api/public/documentation/).
+Retrieve data from the [UNESCO Institute for Statistics (UIS) API](https://api.uis.unesco.org/api/public/documentation/). UIS provides public access to more than 4,000 indicators focusing on education, science and technology, culture, and communication.
 
 The package is part of the [econdataverse](https://www.econdataverse.org/) family of packages aimed at helping economists and financial professionals work with sovereign-level economic data.
 
+ > 💡 The UIS API has no known rate limiting, but there is a 100,000 record limit for each request. For larger data downloads, the UIS recommends its [Bulk Data Download Service (BDDS)](https://databrowser.uis.unesco.org/resources/bulk.
+
 ## Installation
+
+You can install `uisapi` from CRAN via:
+
+```{r eval=FALSE}
+install.packages("uisapi")
+```
 
 You can install the development version of `uisapi` from GitHub with:
 
-```
+```{r eval=FALSE}
 # install.packages("pak")
 pak::pak("tidy-intelligence/r-uisapi")
 ```
@@ -71,10 +79,10 @@ The API supports versioning and you can retrieve all versions using:
 uis_get_versions()
 ```
 
-If you are only interested in the current default version, you can use the parameter `default`:
+If you are only interested in the current default version, you can use the parameter `default_only`:
 
 ```{r}
-uis_get_versions(default = TRUE)
+uis_get_versions(default_only = TRUE)
 ```
 
 The API will only return 100,000 records for each query, if more data is requested, the API call with fail with a 400 http status code. If you need more data, then UIS recommends using the [Bulk Data Download Service (BDDS)](https://databrowser.uis.unesco.org/resources/bulk). You can get a list of available files via:

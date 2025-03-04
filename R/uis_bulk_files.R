@@ -7,7 +7,7 @@
 #' @return A data frame with information about files:
 #'   \item{file_name}{Character. The name of the data set.}
 #'   \item{file_url}{Character. The URL of the data set.}
-#'   \item{last_updated}{Character. Information about last update.}
+#'   \item{last_updated_description}{Character. Information about last update.}
 #'
 #' @examples
 #' \donttest{
@@ -61,17 +61,17 @@ uis_bulk_files <- function() {
   files <- tibble(
     file_name = resources$title,
     file_url = resources$url,
-    last_updated = resources$lastUpdated
+    last_updated_description = resources$lastUpdated
   ) |>
     dplyr::filter(grepl(".zip", .data$file_url))
 
-  files$last_updated <- sub(
+  files$last_updated_description <- sub(
     "^.*last update: ([A-Za-z]+ \\d{4}).*$",
     "\\1",
-    files$last_updated
+    files$last_updated_description
   )
 
-  files$last_updated[files$last_updated == ""] <- NA
+  files$last_updated_description[files$last_updated_description == ""] <- NA
 
   files
 }

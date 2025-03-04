@@ -5,7 +5,7 @@ test_that("Get all files", {
 
   expect_s3_class(result, "data.frame")
   expect_true(all(
-    c("file_name", "file_url", "last_updated") %in%
+    c("file_name", "file_url", "last_updated_description") %in%
       colnames(result)
   ))
 })

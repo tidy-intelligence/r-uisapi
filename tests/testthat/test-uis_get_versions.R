@@ -13,7 +13,7 @@ test_that("Get all versions", {
 test_that("Get default version", {
   skip_if_offline()
 
-  result <- uis_get_versions(default = TRUE)
+  result <- uis_get_versions(default_only = TRUE)
 
   expect_s3_class(result, "data.frame")
   expect_true(all(
