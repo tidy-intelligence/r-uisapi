@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access the UNESCO Institute for Statistics API">
-<meta name="description" content="Retrieve data from the UNESCO Institute for Statistics (UIS) API &lt;https://api.uis.unesco.org/api/public/documentation/&gt;.">
-<meta property="og:description" content="Retrieve data from the UNESCO Institute for Statistics (UIS) API &lt;https://api.uis.unesco.org/api/public/documentation/&gt;.">
+<meta name="description" content="Retrieve data from the UNESCO Institute for Statistics (UIS) API &lt;https://api.uis.unesco.org/api/public/documentation/&gt;. UIS provides public access to more than 4,000 indicators focusing on education, science and technology, culture, and communication.">
+<meta property="og:description" content="Retrieve data from the UNESCO Institute for Statistics (UIS) API &lt;https://api.uis.unesco.org/api/public/documentation/&gt;. UIS provides public access to more than 4,000 indicators focusing on education, science and technology, culture, and communication.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -51,23 +51,30 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>Retrieve data from the <a href="https://api.uis.unesco.org/api/public/documentation/" class="external-link">UNESCO Institute for Statistics (UIS) API</a>.</p>
+<p>Retrieve data from the <a href="https://api.uis.unesco.org/api/public/documentation/" class="external-link">UNESCO Institute for Statistics (UIS) API</a>. UIS provides public access to more than 4,000 indicators focusing on education, science and technology, culture, and communication.</p>
 <p>The package is part of the <a href="https://www.econdataverse.org/" class="external-link">econdataverse</a> family of packages aimed at helping economists and financial professionals work with sovereign-level economic data.</p>
+<blockquote>
+<p>💡 The UIS API has no known rate limiting, but there is a 100,000 record limit for each request. For larger data downloads, the UIS recommends its [Bulk Data Download Service (BDDS)](<a href="https://databrowser.uis.unesco.org/resources/bulk" class="external-link uri">https://databrowser.uis.unesco.org/resources/bulk</a>.</p>
+</blockquote>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
+<p>You can install <code>uisapi</code> from CRAN via:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"uisapi"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of <code>uisapi</code> from GitHub with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># install.packages("pak")</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"tidy-intelligence/r-uisapi"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"tidy-intelligence/r-uisapi"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <p>Load the package:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidy-intelligence/r-uisapi" class="external-link">uisapi</a></span><span class="op">)</span></span></code></pre></div>
 <p>To fetch indicators for specific entities, you can call:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get.html">uis_get</a></span><span class="op">(</span></span>
 <span>  entities <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BRA"</span>, <span class="st">"USA"</span><span class="op">)</span>,</span>
 <span>  indicators <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CR.1"</span>, <span class="st">"CR.2"</span><span class="op">)</span>,</span>
@@ -89,7 +96,7 @@
 <span><span class="co">#&gt; 10 BRA       CR.1          2020  96.3</span></span>
 <span><span class="co">#&gt; # ℹ 26 more rows</span></span></code></pre></div>
 <p>You can get information about the available entities via:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_entities.html">uis_get_entities</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 467 × 4</span></span>
 <span><span class="co">#&gt;    entity_id entity_name          entity_type region_group</span></span>
@@ -106,11 +113,11 @@
 <span><span class="co">#&gt; 10 ARG       Argentina            NATIONAL    &lt;NA&gt;        </span></span>
 <span><span class="co">#&gt; # ℹ 457 more rows</span></span></code></pre></div>
 <p>The list of available indicators can be retrieved via:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_indicators.html">uis_get_indicators</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 4,247 × 7</span></span>
 <span><span class="co">#&gt;    indicator_id indicator_name     theme last_data_update last_data_update_des…¹</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;                 </span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;              &lt;chr&gt; &lt;date&gt;           &lt;chr&gt;                 </span></span>
 <span><span class="co">#&gt;  1 10           Official entrance… EDUC… 2025-02-23       February 2025 Data Re…</span></span>
 <span><span class="co">#&gt;  2 10403        Start month of th… EDUC… 2025-02-23       February 2025 Data Re…</span></span>
 <span><span class="co">#&gt;  3 10404        End month of the … EDUC… 2025-02-23       February 2025 Data Re…</span></span>
@@ -125,7 +132,7 @@
 <span><span class="co">#&gt; # ℹ abbreviated name: ¹​last_data_update_description</span></span>
 <span><span class="co">#&gt; # ℹ 2 more variables: data_availability &lt;list&gt;, entity_types &lt;list&gt;</span></span></code></pre></div>
 <p>The API supports versioning and you can retrieve all versions using:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_versions.html">uis_get_versions</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
 <span><span class="co">#&gt;   version           publication_date    description                     theme   </span></span>
@@ -136,32 +143,33 @@
 <span><span class="co">#&gt; 4 20241030-9d4d089e 2024-10-30 17:28:00 Drop data for CIV on MYS for 1… &lt;tibble&gt;</span></span>
 <span><span class="co">#&gt; 5 20240913-b8ca1963 2024-09-15 14:44:07 Glossary Update                 &lt;tibble&gt;</span></span>
 <span><span class="co">#&gt; 6 20240910-b5ad4d82 2024-09-11 06:15:13 September 2024 Data Release (f… &lt;tibble&gt;</span></span></code></pre></div>
-<p>If you are only interested in the current default version, you can use the parameter <code>default</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_versions.html">uis_get_versions</a></span><span class="op">(</span>default <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<p>If you are only interested in the current default version, you can use the parameter <code>default_only</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/uis_get_versions.html">uis_get_versions</a></span><span class="op">(</span>default_only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 1 × 4</span></span>
 <span><span class="co">#&gt;   version           publication_date    description      theme           </span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;             &lt;dttm&gt;              &lt;chr&gt;            &lt;list&gt;          </span></span>
 <span><span class="co">#&gt; 1 20250225-2ae60fad 2025-02-27 15:29:19 February 2025 DR &lt;tibble [4 × 3]&gt;</span></span></code></pre></div>
 <p>The API will only return 100,000 records for each query, if more data is requested, the API call with fail with a 400 http status code. If you need more data, then UIS recommends using the <a href="https://databrowser.uis.unesco.org/resources/bulk" class="external-link">Bulk Data Download Service (BDDS)</a>. You can get a list of available files via:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/uis_bulk_files.html">uis_bulk_files</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 11 × 3</span></span>
-<span><span class="co">#&gt;    file_name                                               file_url last_updated</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                                                   &lt;chr&gt;    &lt;chr&gt;       </span></span>
-<span><span class="co">#&gt;  1 "SDG 4 Education - Global and Thematic Indicators "     https:/… Septembre 2…</span></span>
-<span><span class="co">#&gt;  2 "Other Policy Relevant Indicators (OPRI)"               https:/… September 2…</span></span>
-<span><span class="co">#&gt;  3 " SDG 9.5 - Research and Development (R&amp;D)"             https:/… October 2024</span></span>
-<span><span class="co">#&gt;  4 "Research and Development (R&amp;D) – Other Policy Relevan… https:/… October 2024</span></span>
-<span><span class="co">#&gt;  5 "SDG 11.4 Protect the Worlds Cultural and Natural Heri… https:/… October 2024</span></span>
-<span><span class="co">#&gt;  6 "Demographic and Socio-economic Indicators"             https:/… September 2…</span></span>
-<span><span class="co">#&gt;  7 "Education Non Core Archive February 2020"              https:/… &lt;NA&gt;        </span></span>
-<span><span class="co">#&gt;  8 "Research and Development (R&amp;D) Archive March 2021"     https:/… &lt;NA&gt;        </span></span>
-<span><span class="co">#&gt;  9 "Innovation Archive April 2017"                         https:/… &lt;NA&gt;        </span></span>
-<span><span class="co">#&gt; 10 "Cultural employment Archive June 2019"                 https:/… &lt;NA&gt;        </span></span>
-<span><span class="co">#&gt; 11 "Cultural trade Archive June 2021"                      https:/… &lt;NA&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt;    file_name                                     file_url last_updated_descrip…¹</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                                         &lt;chr&gt;    &lt;chr&gt;                 </span></span>
+<span><span class="co">#&gt;  1 "SDG 4 Education - Global and Thematic Indic… https:/… Septembre 2024        </span></span>
+<span><span class="co">#&gt;  2 "Other Policy Relevant Indicators (OPRI)"     https:/… September 2024        </span></span>
+<span><span class="co">#&gt;  3 " SDG 9.5 - Research and Development (R&amp;D)"   https:/… October 2024          </span></span>
+<span><span class="co">#&gt;  4 "Research and Development (R&amp;D) – Other Poli… https:/… October 2024          </span></span>
+<span><span class="co">#&gt;  5 "SDG 11.4 Protect the Worlds Cultural and Na… https:/… October 2024          </span></span>
+<span><span class="co">#&gt;  6 "Demographic and Socio-economic Indicators"   https:/… September 2024        </span></span>
+<span><span class="co">#&gt;  7 "Education Non Core Archive February 2020"    https:/… &lt;NA&gt;                  </span></span>
+<span><span class="co">#&gt;  8 "Research and Development (R&amp;D) Archive Marc… https:/… &lt;NA&gt;                  </span></span>
+<span><span class="co">#&gt;  9 "Innovation Archive April 2017"               https:/… &lt;NA&gt;                  </span></span>
+<span><span class="co">#&gt; 10 "Cultural employment Archive June 2019"       https:/… &lt;NA&gt;                  </span></span>
+<span><span class="co">#&gt; 11 "Cultural trade Archive June 2021"            https:/… &lt;NA&gt;                  </span></span>
+<span><span class="co">#&gt; # ℹ abbreviated name: ¹​last_updated_description</span></span></code></pre></div>
 <p>Each bulk files consists of multiple CSV files and the <code>uisapi</code> package currently does not provide automatic importers for these files. Rather, you can use base utils to download a specific file, unzip it, and read its files. For instance:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span></span>
 <span>  <span class="st">"https://uis.unesco.org/sites/default/files/documents/bdds/092024/SDG.zip"</span>,</span>
 <span>  destfile <span class="op">=</span> <span class="st">"SDG.zip"</span></span>
@@ -173,6 +181,7 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=uisapi" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/tidy-intelligence/r-uisapi/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/tidy-intelligence/r-uisapi/issues" class="external-link">Report a bug</a></li>
 </ul>

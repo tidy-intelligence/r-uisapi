@@ -31,7 +31,7 @@ specified entities, indicators, and time periods."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get data from the UIS API</h1>
-      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/main/R/uis_get.R" class="external-link"><code>R/uis_get.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/v0.1.0/R/uis_get.R" class="external-link"><code>R/uis_get.R</code></a></small>
       <div class="d-none name"><code>uis_get.Rd</code></div>
     </div>
 
@@ -56,13 +56,15 @@ specified entities, indicators, and time periods.</p>
 
 
 <dl><dt id="arg-entities">entities<a class="anchor" aria-label="anchor" href="#arg-entities"></a></dt>
-<dd><p>Character vector. The entity IDs (geoUnits) to retrieve data
-for. Must provide either this parameter or <code>indicators</code> or both.</p></dd>
+<dd><p>Character vector. The entity IDs (ISO 3166-1 alpha-3 codes)
+to retrieve data for. Must provide either this parameter or <code>indicators</code> or
+both. See <a href="uis_get_entities.html">uis_get_entities</a> for a list of supported entities.</p></dd>
 
 
 <dt id="arg-indicators">indicators<a class="anchor" aria-label="anchor" href="#arg-indicators"></a></dt>
 <dd><p>Character vector. The indicator IDs to retrieve data for.
-Must provide either this parameter or <code>entities</code> or both.</p></dd>
+Must provide either this parameter or <code>entities</code> or both. See
+<a href="uis_get_indicators.html">uis_get_indicators</a> for a list of supported indicators.</p></dd>
 
 
 <dt id="arg-start-year">start_year<a class="anchor" aria-label="anchor" href="#arg-start-year"></a></dt>
@@ -77,7 +79,8 @@ period. If NULL, no end year constraint is applied.</p></dd>
 
 <dt id="arg-version">version<a class="anchor" aria-label="anchor" href="#arg-version"></a></dt>
 <dd><p>Character. The API version to use. If NULL, the default
-version is used.</p></dd>
+version is used. See <a href="uis_get_versions.html">uis_get_versions</a> for a list of supported
+versions.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -97,11 +100,6 @@ version is used.</p></dd>
 year.</p></dd>
 
 </dl></div>
-    <div class="section level2">
-    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="uis_get_entities.html">uis_get_entities</a> for retrieving available geographical entities and
-<a href="uis_get_versions.html">uis_get_versions</a> for retrieving available API versions</p></div>
-    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

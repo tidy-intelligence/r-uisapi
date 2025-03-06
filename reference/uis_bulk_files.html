@@ -31,7 +31,7 @@ Statistics (UIS) Bulk Data Download Service (BDDS)."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get files available for download via UIS BDDS</h1>
-      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/main/R/uis_bulk_files.R" class="external-link"><code>R/uis_bulk_files.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/v0.1.0/R/uis_bulk_files.R" class="external-link"><code>R/uis_bulk_files.R</code></a></small>
       <div class="d-none name"><code>uis_bulk_files.Rd</code></div>
     </div>
 
@@ -54,7 +54,7 @@ Statistics (UIS) Bulk Data Download Service (BDDS).</p>
 <dt>file_url</dt>
 <dd><p>Character. The URL of the data set.</p></dd>
 
-<dt>last_updated</dt>
+<dt>last_updated_description</dt>
 <dd><p>Character. Information about last update.</p></dd>
 
 </dl></div>
@@ -65,19 +65,20 @@ Statistics (UIS) Bulk Data Download Service (BDDS).</p>
 <span class="r-in"><span><span class="co"># Download available files for bulk download</span></span></span>
 <span class="r-in"><span><span class="fu">uis_bulk_files</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    file_name                                               file_url last_updated</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>SDG 4 Education - Global and Thematic Indicators <span style="color: #949494;">"</span>     https:/… Septembre 2…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>Other Policy Relevant Indicators (OPRI)<span style="color: #949494;">"</span>               https:/… September 2…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span> SDG 9.5 - Research and Development (R&amp;D)<span style="color: #949494;">"</span>             https:/… October 2024</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>Research and Development (R&amp;D) – Other Policy Relevan… https:/… October 2024</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>SDG 11.4 Protect the Worlds Cultural and Natural Heri… https:/… October 2024</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>Demographic and Socio-economic Indicators<span style="color: #949494;">"</span>             https:/… September 2…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>Education Non Core Archive February 2020<span style="color: #949494;">"</span>              https:/… <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>Research and Development (R&amp;D) Archive March 2021<span style="color: #949494;">"</span>     https:/… <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>Innovation Archive April 2017<span style="color: #949494;">"</span>                         https:/… <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>Cultural employment Archive June 2019<span style="color: #949494;">"</span>                 https:/… <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> <span style="color: #949494;">"</span>Cultural trade Archive June 2021<span style="color: #949494;">"</span>                      https:/… <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    file_name                                     file_url last_updated_descrip…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>SDG 4 Education - Global and Thematic Indic… https:/… Septembre 2024        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>Other Policy Relevant Indicators (OPRI)<span style="color: #949494;">"</span>     https:/… September 2024        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span> SDG 9.5 - Research and Development (R&amp;D)<span style="color: #949494;">"</span>   https:/… February 2025         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>Research and Development (R&amp;D) – Other Poli… https:/… February 2025         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>SDG 11.4 Protect the Worlds Cultural and Na… https:/… February 2025         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>Demographic and Socio-economic Indicators<span style="color: #949494;">"</span>   https:/… September 2024        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>Education Non Core Archive February 2020<span style="color: #949494;">"</span>    https:/… <span style="color: #BB0000;">NA</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>Research and Development (R&amp;D) Archive Marc… https:/… <span style="color: #BB0000;">NA</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>Innovation Archive April 2017<span style="color: #949494;">"</span>               https:/… <span style="color: #BB0000;">NA</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>Cultural employment Archive June 2019<span style="color: #949494;">"</span>       https:/… <span style="color: #BB0000;">NA</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> <span style="color: #949494;">"</span>Cultural trade Archive June 2021<span style="color: #949494;">"</span>            https:/… <span style="color: #BB0000;">NA</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​last_updated_description</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

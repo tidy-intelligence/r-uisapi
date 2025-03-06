@@ -31,7 +31,7 @@ available in the UNESCO Institute for Statistics (UIS) API."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get geographical entities from UIS API</h1>
-      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/main/R/uis_get_entities.R" class="external-link"><code>R/uis_get_entities.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/v0.1.0/R/uis_get_entities.R" class="external-link"><code>R/uis_get_entities.R</code></a></small>
       <div class="d-none name"><code>uis_get_entities.Rd</code></div>
     </div>
 
@@ -51,7 +51,8 @@ available in the UNESCO Institute for Statistics (UIS) API.</p>
 
 <dl><dt id="arg-version">version<a class="anchor" aria-label="anchor" href="#arg-version"></a></dt>
 <dd><p>Character. The API version to use. If NULL (default), the
-API's default version will be used.</p></dd>
+API's default version will be used. See <a href="uis_get_versions.html">uis_get_versions</a> for a list
+of supported versions.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -63,18 +64,14 @@ API's default version will be used.</p></dd>
 <dt>entity_name</dt>
 <dd><p>Character. The name of the geographical entity.</p></dd>
 
-<dt>entity_typ</dt>
+<dt>entity_type</dt>
 <dd><p>Character. The type of entity (e.g., country, region).</p></dd>
 
 <dt>region_group</dt>
-<dd><p>Character or list. Information about the region
+<dd><p>Character. Information about the region
 grouping.</p></dd>
 
 </dl></div>
-    <div class="section level2">
-    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="uis_get_versions.html">uis_get_versions</a> for retrieving available API versions.</p></div>
-    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
