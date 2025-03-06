@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/uisapi)](https://cran.r-project.org/package=uisapi)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/uisapi)](https://cran.r-project.org/package=uisapi)
 ![R CMD
 Check](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/R-CMD-check.yaml/badge.svg)
 ![Lint](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/lint.yaml/badge.svg)
@@ -13,19 +17,35 @@ coverage](https://codecov.io/gh/tidy-intelligence/r-uisapi/graph/badge.svg)](htt
 <!-- badges: end -->
 
 Retrieve data from the [UNESCO Institute for Statistics (UIS)
-API](https://api.uis.unesco.org/api/public/documentation/).
+API](https://api.uis.unesco.org/api/public/documentation/). UIS provides
+public access to more than 4,000 indicators focusing on education,
+science and technology, culture, and communication.
 
 The package is part of the
 [econdataverse](https://www.econdataverse.org/) family of packages aimed
 at helping economists and financial professionals work with
 sovereign-level economic data.
 
+> 💡 The UIS API has no known rate limiting, but there is a 100,000
+> record limit for each request. For larger data downloads, the UIS
+> recommends its \[Bulk Data Download Service
+> (BDDS)\](<https://databrowser.uis.unesco.org/resources/bulk>.
+
 ## Installation
+
+You can install `uisapi` from
+[CRAN](https://cran.r-project.org/package=uisapi) via:
+
+``` r
+install.packages("uisapi")
+```
 
 You can install the development version of `uisapi` from GitHub with:
 
-    # install.packages("pak")
-    pak::pak("tidy-intelligence/r-uisapi")
+``` r
+# install.packages("pak")
+pak::pak("tidy-intelligence/r-uisapi")
+```
 
 ## Usage
 
@@ -86,7 +106,7 @@ The list of available indicators can be retrieved via:
 uis_get_indicators()
 #> # A tibble: 4,247 × 7
 #>    indicator_id indicator_name     theme last_data_update last_data_update_des…¹
-#>    <chr>        <chr>              <chr> <chr>            <chr>                 
+#>    <chr>        <chr>              <chr> <date>           <chr>                 
 #>  1 10           Official entrance… EDUC… 2025-02-23       February 2025 Data Re…
 #>  2 10403        Start month of th… EDUC… 2025-02-23       February 2025 Data Re…
 #>  3 10404        End month of the … EDUC… 2025-02-23       February 2025 Data Re…
@@ -118,10 +138,10 @@ uis_get_versions()
 ```
 
 If you are only interested in the current default version, you can use
-the parameter `default`:
+the parameter `default_only`:
 
 ``` r
-uis_get_versions(default = TRUE)
+uis_get_versions(default_only = TRUE)
 #> # A tibble: 1 × 4
 #>   version           publication_date    description      theme           
 #>   <chr>             <dttm>              <chr>            <list>          
@@ -137,19 +157,20 @@ can get a list of available files via:
 ``` r
 uis_bulk_files()
 #> # A tibble: 11 × 3
-#>    file_name                                               file_url last_updated
-#>    <chr>                                                   <chr>    <chr>       
-#>  1 "SDG 4 Education - Global and Thematic Indicators "     https:/… Septembre 2…
-#>  2 "Other Policy Relevant Indicators (OPRI)"               https:/… September 2…
-#>  3 " SDG 9.5 - Research and Development (R&D)"             https:/… October 2024
-#>  4 "Research and Development (R&D) – Other Policy Relevan… https:/… October 2024
-#>  5 "SDG 11.4 Protect the Worlds Cultural and Natural Heri… https:/… October 2024
-#>  6 "Demographic and Socio-economic Indicators"             https:/… September 2…
-#>  7 "Education Non Core Archive February 2020"              https:/… <NA>        
-#>  8 "Research and Development (R&D) Archive March 2021"     https:/… <NA>        
-#>  9 "Innovation Archive April 2017"                         https:/… <NA>        
-#> 10 "Cultural employment Archive June 2019"                 https:/… <NA>        
-#> 11 "Cultural trade Archive June 2021"                      https:/… <NA>
+#>    file_name                                     file_url last_updated_descrip…¹
+#>    <chr>                                         <chr>    <chr>                 
+#>  1 "SDG 4 Education - Global and Thematic Indic… https:/… Septembre 2024        
+#>  2 "Other Policy Relevant Indicators (OPRI)"     https:/… September 2024        
+#>  3 " SDG 9.5 - Research and Development (R&D)"   https:/… February 2025         
+#>  4 "Research and Development (R&D) – Other Poli… https:/… February 2025         
+#>  5 "SDG 11.4 Protect the Worlds Cultural and Na… https:/… February 2025         
+#>  6 "Demographic and Socio-economic Indicators"   https:/… September 2024        
+#>  7 "Education Non Core Archive February 2020"    https:/… <NA>                  
+#>  8 "Research and Development (R&D) Archive Marc… https:/… <NA>                  
+#>  9 "Innovation Archive April 2017"               https:/… <NA>                  
+#> 10 "Cultural employment Archive June 2019"       https:/… <NA>                  
+#> 11 "Cultural trade Archive June 2021"            https:/… <NA>                  
+#> # ℹ abbreviated name: ¹​last_updated_description
 ```
 
 Each bulk files consists of multiple CSV files and the `uisapi` package

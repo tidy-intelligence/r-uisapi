@@ -2,11 +2,10 @@
 #'
 #' @description
 #' Retrieves information about the available versions of the UNESCO Institute
-#' for Statistics (UIS) API, including version IDs, descriptions, and theme
-#' data.
+#' for Statistics (UIS) API.
 #'
-#' @param default Logical. Indicates whether only the current default version
-#'  should be retrievend. Defaults to FALSE.
+#' @param default_only Logical. Indicates whether only the current default
+#'  version should be retrievend. Defaults to FALSE.
 #'
 #' @return A data frame with the following columns:
 #'   \item{version}{Character. The version identifier.}
@@ -22,8 +21,8 @@
 #' }
 #'
 #' @export
-uis_get_versions <- function(default = FALSE) {
-  if (default) {
+uis_get_versions <- function(default_only = FALSE) {
+  if (default_only) {
     resp <- perform_request("versions/default")
   } else {
     resp <- perform_request("versions")

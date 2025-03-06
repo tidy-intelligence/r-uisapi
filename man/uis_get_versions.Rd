@@ -4,11 +4,11 @@
 \alias{uis_get_versions}
 \title{Get available UIS API versions}
 \usage{
-uis_get_versions(default = FALSE)
+uis_get_versions(default_only = FALSE)
 }
 \arguments{
-\item{default}{Logical. Indicates whether only the current default version
-should be retrievend. Defaults to FALSE.}
+\item{default_only}{Logical. Indicates whether only the current default
+version should be retrievend. Defaults to FALSE.}
 }
 \value{
 A data frame with the following columns:
@@ -21,8 +21,7 @@ theme_last_update, theme_description}
 }
 \description{
 Retrieves information about the available versions of the UNESCO Institute
-for Statistics (UIS) API, including version IDs, descriptions, and theme
-data.
+for Statistics (UIS) API.
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

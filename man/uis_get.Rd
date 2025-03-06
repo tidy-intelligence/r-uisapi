@@ -13,11 +13,13 @@ uis_get(
 )
 }
 \arguments{
-\item{entities}{Character vector. The entity IDs (geoUnits) to retrieve data
-for. Must provide either this parameter or \code{indicators} or both.}
+\item{entities}{Character vector. The entity IDs (ISO 3166-1 alpha-3 codes)
+to retrieve data for. Must provide either this parameter or \code{indicators} or
+both. See \link{uis_get_entities} for a list of supported entities.}
 
 \item{indicators}{Character vector. The indicator IDs to retrieve data for.
-Must provide either this parameter or \code{entities} or both.}
+Must provide either this parameter or \code{entities} or both. See
+\link{uis_get_indicators} for a list of supported indicators.}
 
 \item{start_year}{Numeric or character. The starting year for the data
 retrieval period. If NULL, no start year constraint is applied.}
@@ -26,7 +28,8 @@ retrieval period. If NULL, no start year constraint is applied.}
 period. If NULL, no end year constraint is applied.}
 
 \item{version}{Character. The API version to use. If NULL, the default
-version is used.}
+version is used. See \link{uis_get_versions} for a list of supported
+versions.}
 }
 \value{
 A data frame with the following columns:
@@ -68,8 +71,4 @@ uis_get(
 )
 }
 \dontshow{\}) # examplesIf}
-}
-\seealso{
-\link{uis_get_entities} for retrieving available geographical entities and
-\link{uis_get_versions} for retrieving available API versions
 }

@@ -10,7 +10,7 @@ uis_bulk_files()
 A data frame with information about files:
 \item{file_name}{Character. The name of the data set.}
 \item{file_url}{Character. The URL of the data set.}
-\item{last_updated}{Character. Information about last update.}
+\item{last_updated_description}{Character. Information about last update.}
 }
 \description{
 Retrieves information about files available in the UNESCO Institute for

@@ -4,16 +4,19 @@
 #' Retrieves data from the UNESCO Institute for Statistics (UIS) API for
 #' specified entities, indicators, and time periods.
 #'
-#' @param entities Character vector. The entity IDs (geoUnits) to retrieve data
-#'  for. Must provide either this parameter or `indicators` or both.
+#' @param entities Character vector. The entity IDs (ISO 3166-1 alpha-3 codes)
+#'  to retrieve data for. Must provide either this parameter or `indicators` or
+#'  both. See \link{uis_get_entities} for a list of supported entities.
 #' @param indicators Character vector. The indicator IDs to retrieve data for.
-#'   Must provide either this parameter or `entities` or both.
+#'   Must provide either this parameter or `entities` or both. See
+#' \link{uis_get_indicators} for a list of supported indicators.
 #' @param start_year Numeric or character. The starting year for the data
 #'  retrieval period. If NULL, no start year constraint is applied.
 #' @param end_year Numeric or character. The ending year for the data retrieval
 #'  period. If NULL, no end year constraint is applied.
 #' @param version Character. The API version to use. If NULL, the default
-#'  version is used.
+#'  version is used. See \link{uis_get_versions} for a list of supported
+#'  versions.
 #'
 #' @return A data frame with the following columns:
 #'   \item{entity_id}{Character. The ID of the entity (geoUnit).}
@@ -48,10 +51,6 @@
 #'   end_year = 2020
 #' )
 #' }
-#'
-#' @seealso
-#' \link{uis_get_entities} for retrieving available geographical entities and
-#' \link{uis_get_versions} for retrieving available API versions
 #'
 #' @export
 uis_get <- function(
