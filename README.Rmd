@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # uisapi
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/uisapi)](https://cran.r-project.org/package=uisapi)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/uisapi)](https://cran.r-project.org/package=uisapi)
 ![R CMD Check](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/R-CMD-check.yaml/badge.svg)
 ![Lint](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/lint.yaml/badge.svg)
 [![Codecov test coverage](https://codecov.io/gh/tidy-intelligence/r-uisapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-uisapi)
@@ -29,7 +31,7 @@ The package is part of the [econdataverse](https://www.econdataverse.org/) famil
 
 ## Installation
 
-You can install `uisapi` from CRAN via:
+You can install `uisapi` from [CRAN](https://cran.r-project.org/package=uisapi) via:
 
 ```{r eval=FALSE}
 install.packages("uisapi")

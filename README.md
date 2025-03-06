@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/uisapi)](https://cran.r-project.org/package=uisapi)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/uisapi)](https://cran.r-project.org/package=uisapi)
 ![R CMD
 Check](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/R-CMD-check.yaml/badge.svg)
 ![Lint](https://github.com/tidy-intelligence/r-uisapi/actions/workflows/lint.yaml/badge.svg)
@@ -29,7 +33,8 @@ sovereign-level economic data.
 
 ## Installation
 
-You can install `uisapi` from CRAN via:
+You can install `uisapi` from
+[CRAN](https://cran.r-project.org/package=uisapi) via:
 
 ``` r
 install.packages("uisapi")
@@ -156,9 +161,9 @@ uis_bulk_files()
 #>    <chr>                                         <chr>    <chr>                 
 #>  1 "SDG 4 Education - Global and Thematic Indic… https:/… Septembre 2024        
 #>  2 "Other Policy Relevant Indicators (OPRI)"     https:/… September 2024        
-#>  3 " SDG 9.5 - Research and Development (R&D)"   https:/… October 2024          
-#>  4 "Research and Development (R&D) – Other Poli… https:/… October 2024          
-#>  5 "SDG 11.4 Protect the Worlds Cultural and Na… https:/… October 2024          
+#>  3 " SDG 9.5 - Research and Development (R&D)"   https:/… February 2025         
+#>  4 "Research and Development (R&D) – Other Poli… https:/… February 2025         
+#>  5 "SDG 11.4 Protect the Worlds Cultural and Na… https:/… February 2025         
 #>  6 "Demographic and Socio-economic Indicators"   https:/… September 2024        
 #>  7 "Education Non Core Archive February 2020"    https:/… <NA>                  
 #>  8 "Research and Development (R&D) Archive Marc… https:/… <NA>                  

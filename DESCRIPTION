@@ -18,9 +18,9 @@ Imports:
     httr2 (>= 1.0.0),
     jsonlite (>= 1.0.0),
     tibble,
-    dplyr,
-    tidyr,
-    rlang
+    dplyr (>= 1.0.0),
+    tidyr (>= 1.0.0),
+    rlang (>= 1.0.0)
 Suggests:
     curl,
     testthat (>= 3.0.0)
