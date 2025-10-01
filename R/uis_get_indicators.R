@@ -130,7 +130,10 @@ uis_get_indicators <- function(
       "entity_types" = "entity_types"
     ) |>
     dplyr::mutate(
-      last_data_update = as.Date(.data$last_data_update)
+      last_data_update = as.Date(
+        .data$last_data_update,
+        tryFormats = c("%Y-%m-%d", "%m/%d/%Y")
+      )
     )
 
   if (disaggregations || glossary_terms) {
