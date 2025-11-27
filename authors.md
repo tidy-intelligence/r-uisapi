@@ -8,16 +8,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/tidy-intelligence/r-uisapi/blob/v0.1.1/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/tidy-intelligence/r-uisapi/blob/main/DESCRIPTION)
 
 Scheuch C (2025). *uisapi: Access the UNESCO Institute for Statistics
-API*. R package version 0.1.0.9001,
+API*. R package version 0.1.1.9000,
 <https://github.com/tidy-intelligence/r-uisapi>.
 
     @Manual{,
       title = {uisapi: Access the UNESCO Institute for Statistics API},
       author = {Christoph Scheuch},
       year = {2025},
-      note = {R package version 0.1.0.9001},
+      note = {R package version 0.1.1.9000},
       url = {https://github.com/tidy-intelligence/r-uisapi},
     }
