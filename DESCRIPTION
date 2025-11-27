@@ -1,6 +1,6 @@
 Package: uisapi
 Title: Access the UNESCO Institute for Statistics API
-Version: 0.1.0.9001
+Version: 0.1.1.9000
 Authors@R: c(
     person("Christoph", "Scheuch", , "christoph@tidy-intelligence.com", 
             role = c("aut", "cre", "cph"),
