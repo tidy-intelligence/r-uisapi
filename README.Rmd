@@ -27,7 +27,7 @@ Retrieve data from the [UNESCO Institute for Statistics (UIS) API](https://api.u
 
 The package is part of the [econdataverse](https://www.econdataverse.org/) family of packages aimed at helping economists and financial professionals work with sovereign-level economic data.
 
- > 💡 The UIS API has no known rate limiting, but there is a 100,000 record limit for each request. For larger data downloads, the UIS recommends its [Bulk Data Download Service (BDDS)](https://databrowser.uis.unesco.org/resources/bulk.
+ > 💡 The UIS API has no known rate limiting, but there is a 100,000 record limit for each request. For larger data downloads, the UIS recommends its [Bulk Data Download Service (BDDS)](https://databrowser.uis.unesco.org/resources/bulk).
 
 ## Installation
 
