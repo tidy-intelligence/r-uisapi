@@ -31,7 +31,7 @@ Statistics (UIS) API."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get indicator definitions from UIS API</h1>
-      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/main/R/uis_get_indicators.R" class="external-link"><code>R/uis_get_indicators.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/v0.1.1/R/uis_get_indicators.R" class="external-link"><code>R/uis_get_indicators.R</code></a></small>
       <div class="d-none name"><code>uis_get_indicators.Rd</code></div>
     </div>
 
@@ -103,7 +103,7 @@ associated with the indicator.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Download indicators</span></span></span>
 <span class="r-in"><span><span class="fu">uis_get_indicators</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,637 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,636 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    indicator_id indicator_name     theme last_data_update last_data_update_des…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10           Official entrance… EDUC… 2025-09-17       September 2025 Data R…</span>
@@ -116,13 +116,13 @@ associated with the indicator.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 200144       Population aged 1… DEMO… 2025-09-09       September 2025 Data R…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 200151       Population aged 6… DEMO… 2025-09-09       September 2025 Data R…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 200343       Population aged 1… DEMO… 2025-09-09       September 2025 Data R…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4,627 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4,626 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​last_data_update_description</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: data_availability &lt;list&gt;, entity_types &lt;list&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Download indicators with glossary terms and disaggregations</span></span></span>
 <span class="r-in"><span><span class="fu">uis_get_indicators</span><span class="op">(</span>disaggregations <span class="op">=</span> <span class="cn">TRUE</span>, glossary_terms <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,637 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,636 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    indicator_id indicator_name     theme last_data_update last_data_update_des…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10           Official entrance… EDUC… 2025-09-17       September 2025 Data R…</span>
@@ -135,7 +135,7 @@ associated with the indicator.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 200144       Population aged 1… DEMO… 2025-09-09       September 2025 Data R…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 200151       Population aged 6… DEMO… 2025-09-09       September 2025 Data R…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 200343       Population aged 1… DEMO… 2025-09-09       September 2025 Data R…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4,627 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4,626 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​last_data_update_description</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 more variables: data_availability &lt;list&gt;, entity_types &lt;list&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   disaggregations &lt;list&gt;, glossary_terms &lt;list&gt;</span></span>
@@ -152,7 +152,7 @@ associated with the indicator.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

@@ -31,7 +31,7 @@ for Statistics (UIS) API."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get available UIS API versions</h1>
-      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/main/R/uis_get_versions.R" class="external-link"><code>R/uis_get_versions.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-uisapi/blob/v0.1.1/R/uis_get_versions.R" class="external-link"><code>R/uis_get_versions.R</code></a></small>
       <div class="d-none name"><code>uis_get_versions.Rd</code></div>
     </div>
 
@@ -77,20 +77,21 @@ theme_last_update, theme_description</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">uis_get_versions</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    version           publication_date    description                    theme   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 20250917-73f4b95c 2025-09-18 <span style="color: #949494;">13:31:02</span> September 2025 Data Release    <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 20250910-c4a5b1fe 2025-09-12 <span style="color: #949494;">02:55:22</span> September 2025 release         <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 20250416-f6707727 2025-04-16 <span style="color: #949494;">14:45:45</span> Dropping data for Hong Kong c… <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 20250325-6f032139 2025-03-25 <span style="color: #949494;">23:19:35</span> Dropping indicators with valu… <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 20250312-e714f4e9 2025-03-12 <span style="color: #949494;">14:01:51</span> Dropping Moldova 2024 populat… <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 20250225-2ae60fad 2025-02-27 <span style="color: #949494;">15:29:19</span> February 2025 DR               <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 20241121-61101499 2024-11-21 <span style="color: #949494;">23:37:39</span> SCCI Data refresh – Nov 2024 … <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 20241113-98786d81 2024-11-21 <span style="color: #949494;">18:57:35</span> SCCI data refresh              <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 20241030-9d4d089e 2024-10-30 <span style="color: #949494;">17:28:00</span> Drop data for CIV on MYS for … <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 20240913-b8ca1963 2024-09-15 <span style="color: #949494;">14:44:07</span> Glossary Update                <span style="color: #949494;">&lt;tibble&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 20240910-b5ad4d82 2024-09-11 <span style="color: #949494;">06:15:13</span> September 2024 Data Release (… <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 20251112-3e719d9a 2025-11-13 <span style="color: #949494;">17:46:49</span> November 2025 SCCI Refresh     <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 20250917-73f4b95c 2025-09-18 <span style="color: #949494;">13:31:02</span> September 2025 Data Release    <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 20250910-c4a5b1fe 2025-09-12 <span style="color: #949494;">02:55:22</span> September 2025 release         <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 20250416-f6707727 2025-04-16 <span style="color: #949494;">14:45:45</span> Dropping data for Hong Kong c… <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 20250325-6f032139 2025-03-25 <span style="color: #949494;">23:19:35</span> Dropping indicators with valu… <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 20250312-e714f4e9 2025-03-12 <span style="color: #949494;">14:01:51</span> Dropping Moldova 2024 populat… <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 20250225-2ae60fad 2025-02-27 <span style="color: #949494;">15:29:19</span> February 2025 DR               <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 20241121-61101499 2024-11-21 <span style="color: #949494;">23:37:39</span> SCCI Data refresh – Nov 2024 … <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 20241113-98786d81 2024-11-21 <span style="color: #949494;">18:57:35</span> SCCI data refresh              <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 20241030-9d4d089e 2024-10-30 <span style="color: #949494;">17:28:00</span> Drop data for CIV on MYS for … <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 20240913-b8ca1963 2024-09-15 <span style="color: #949494;">14:44:07</span> Glossary Update                <span style="color: #949494;">&lt;tibble&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 20240910-b5ad4d82 2024-09-11 <span style="color: #949494;">06:15:13</span> September 2024 Data Release (… <span style="color: #949494;">&lt;tibble&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -103,7 +104,7 @@ theme_last_update, theme_description</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
